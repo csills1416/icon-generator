@@ -1,24 +1,27 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const { Triangle, Square, Circle } = require('./shapes.js');
+import fs from 'fs';
+import inquirer from 'inquirer';
+import { Triangle, Square, Circle } from './lib/shapes.js';
 
 async function generateSVG(shape, shapeColor, text, textColor) {
   let svg;
   try {
+    let shapeInstance;
+
     switch (shape) {
       case 'triangle':
-        svg = Triangle.generateSVG(shapeColor, text, textColor);
+        shapeInstance = new Triangle(shapeColor);
         break;
       case 'square':
-        svg = Square.generateSVG(shapeColor, text, textColor);
+        shapeInstance = new Square(shapeColor);
         break;
       case 'circle':
-        svg = Circle.generateSVG(shapeColor, text, textColor);
+        shapeInstance = new Circle(shapeColor);
         break;
       default:
         throw new Error('Invalid shape selected');
     }
 
+    svg = shapeInstance.generateSVG();
     fs.writeFileSync('logo.svg', svg);
     console.log('Your SVG has been generated!');
     return svg;
