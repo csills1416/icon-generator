@@ -2,34 +2,34 @@ import fs from 'fs';
 import inquirer from 'inquirer';
 import { Triangle, Square, Circle } from './lib/shapes.js';
 
+const width = 200
+const height = 300
+
 async function generateSVG(shape, shapeColor, text, textColor) {
-  let svg;
   try {
     let shapeInstance;
-
     switch (shape) {
       case 'triangle':
-        shapeInstance = new Triangle(shapeColor);
+        shapeInstance = new Triangle(shapeColor, width, height, text, textColor);
         break;
       case 'square':
-        shapeInstance = new Square(shapeColor);
+        shapeInstance = new Square(shapeColor, width, height, text, textColor);
         break;
       case 'circle':
-        shapeInstance = new Circle(shapeColor);
+        shapeInstance = new Circle(shapeColor, width, height, text, textColor);
         break;
       default:
         throw new Error('Invalid shape selected');
     }
 
-    svg = shapeInstance.generateSVG();
+    // Generate the SVG using the shape instance
+    const svg = shapeInstance.generateSVG();
     fs.writeFileSync('logo.svg', svg);
     console.log('Your SVG has been generated!');
-    return svg;
   } catch (error) {
     console.error(error);
   }
 }
-
 async function promptUser() {
   try {
     const { text, textColor, shape, shapeColor } = await inquirer.prompt([
