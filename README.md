@@ -31,7 +31,7 @@ git clone https://github.com/your-username/svg-logo-maker.git
 
 ## Walkthrough Video
 
-Watch this tutorial video for visual instructions(https://www.youtube.com/watch?v=CV8qC7rlEVc&t=1s)
+Watch this tutorial video for visual instructions: https://www.youtube.com/watch?v=V68ZMXQNWVI 
 
 ## License
 
