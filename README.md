@@ -33,7 +33,10 @@ git clone https://github.com/your-username/svg-logo-maker.git
 
 Watch this tutorial video for visual instructions(https://www.youtube.com/watch?v=CV8qC7rlEVc&t=1s)
 
-## Liscense
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Sources used
 
